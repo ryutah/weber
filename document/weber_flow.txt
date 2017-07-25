@@ -1,0 +1,7 @@
+title weber
+
+User->+Client: Input text
+Client->Server: Send text data
+Server->Server: Create image
+Server->Client: Response created image
+Client-->-User: Draw image
