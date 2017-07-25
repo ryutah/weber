@@ -65,3 +65,19 @@ schemas:
 * 最後の入力から一定時間入力がなかった場合にリクエストを行う
   - サーバ負荷軽減のため
   - [参考](http://hakoniwahaniwa.hatenablog.com/entry/2013/10/13/205443)
+
+\# 一定時間入力がない場合にイベントを発生させるサンプル  
+```javascript
+var $area = document.querySelector("#sample-area")
+var stack = []
+
+$area.addEventListener("keyup", function() {
+  stack.push(1)
+  setTimeout(function() {
+    stack.pop()
+    if (stack.length === 0) {
+      console.log("BANG!!")
+    }
+  }, 1000)
+})
+```
