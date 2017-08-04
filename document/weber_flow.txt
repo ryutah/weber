@@ -1,7 +1,20 @@
 title weber
 
 User->+Client: Input text
-Client->Server: Send text data
-Server->Server: Create image
-Server->Client: Response created image
+Client->+Server: Send text data
+note right of Client
+  Send request if text
+  has not been changed
+  for a while
+end note
+Server->Server:
+note right of Server
+  Compile to dot language
+end note
+Server-->-Client: Response dot language
+Client->Client:
+note right of Client
+  Dot language to png
+  by using viz.js
+end note
 Client-->-User: Draw image
